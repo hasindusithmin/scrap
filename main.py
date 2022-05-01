@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from func.fn_nf import nffn
+from func.fn_dtv import dtv_fn
 import uvicorn
 
 ###############################################
@@ -22,6 +23,10 @@ def root():
 @app.get("/newsfirst")
 async def news_first():
     return nffn()
+###########################################################
+@app.get("/derananews")
+async def derana_news():
+    return dtv_fn()
 ###########################################################
 
 if __name__=='__main__':
